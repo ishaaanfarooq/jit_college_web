@@ -410,48 +410,52 @@ export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Mosaic */}
-      <section className="pt-16 bg-primary-black marquee-wrapper">
+      <section className="pt-16 bg-primary-black">
         {/* Row 1 — scrolls left */}
-        <div className="marquee-track mb-1">
-          {[...heroImages, ...heroImages].map((src, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 w-64 h-40 overflow-hidden relative group cursor-none"
-            >
-              <Image
-                src={src}
-                alt="JIT Campus"
-                width={256}
-                height={160}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-primary-gold/0 group-hover:bg-primary-gold/30 transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-primary-black/80 px-3 py-1.5">
-                <p className="font-mono text-xs text-primary-gold tracking-widest uppercase">JIT Campus</p>
+        <div className="overflow-hidden mb-1">
+          <div className="marquee-track">
+            {[...heroImages, ...heroImages].map((src, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-64 h-40 overflow-hidden relative group cursor-none"
+              >
+                <Image
+                  src={src}
+                  alt="JIT Campus"
+                  width={256}
+                  height={160}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-primary-gold/0 group-hover:bg-primary-gold/30 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-primary-black/80 px-3 py-1.5">
+                  <p className="font-mono text-xs text-primary-gold tracking-widest uppercase">JIT Campus</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         {/* Row 2 — scrolls right */}
-        <div className="marquee-track-reverse">
-          {[...heroImages2, ...heroImages2].map((src, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 w-64 h-40 overflow-hidden relative group cursor-none"
-            >
-              <Image
-                src={src}
-                alt="JIT Campus"
-                width={256}
-                height={160}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-primary-gold/0 group-hover:bg-primary-gold/30 transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-primary-black/80 px-3 py-1.5">
-                <p className="font-mono text-xs text-primary-gold tracking-widest uppercase">JIT Campus</p>
+        <div className="overflow-hidden">
+          <div className="marquee-track-reverse">
+            {[...heroImages2, ...heroImages2].map((src, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-64 h-40 overflow-hidden relative group cursor-none"
+              >
+                <Image
+                  src={src}
+                  alt="JIT Campus"
+                  width={256}
+                  height={160}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-primary-gold/0 group-hover:bg-primary-gold/30 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-primary-black/80 px-3 py-1.5">
+                  <p className="font-mono text-xs text-primary-gold tracking-widest uppercase">JIT Campus</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
