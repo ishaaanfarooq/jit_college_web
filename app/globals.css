@@ -96,6 +96,17 @@ h1, h2, h3, h4, h5 {
   clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
 }
 
+/* Marquee keyframes */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 /* Marquee wrapper */
 .marquee-wrapper {
   overflow: hidden;
@@ -104,12 +115,16 @@ h1, h2, h3, h4, h5 {
 
 .marquee-track {
   display: inline-flex;
-  animation: marquee-left 40s linear infinite;
+  gap: 4px;
+  will-change: transform;
+  animation: marquee-left 35s linear infinite;
 }
 
 .marquee-track-reverse {
   display: inline-flex;
-  animation: marquee-right 40s linear infinite;
+  gap: 4px;
+  will-change: transform;
+  animation: marquee-right 35s linear infinite;
 }
 
 .marquee-wrapper:hover .marquee-track,
