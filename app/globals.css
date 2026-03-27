@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-black: #0A0A0A;
+  --primary-gold: #CDB87C;
+  --accent-gold: #CFB991;
+  --dark-charcoal: #1B1B1B;
+  --warm-white: #F5F5F0;
+  --pure-white: #FFFFFF;
+  --muted-gray: #6B6B6B;
+  --border-gray: #2D2D2D;
+  --font-display: var(--font-oswald);
+  --font-body: var(--font-dm-sans);
+  --font-accent: var(--font-space-mono);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--pure-white);
+  color: var(--primary-black);
+  font-family: var(--font-body), 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gold);
+  border-radius: 3px;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #CDB87C, #CFB991);
+  z-index: 9999;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* Typography base styles */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display), 'Oswald', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Section headings utility */
+.section-heading {
+  font-family: var(--font-display), 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.mono-label {
+  font-family: var(--font-accent), 'Space Mono', monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Gold text utility */
+.text-gold {
+  color: var(--primary-gold);
+}
+
+/* Angled banner */
+.angled-banner {
+  position: relative;
+  background: var(--primary-black);
+  padding: 8px 32px;
+  clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
+}
+
+/* Marquee wrapper */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee-left 40s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: inline-flex;
+  animation: marquee-right 40s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* Custom cursor */
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--primary-gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+body.cursor-hover #cursor-dot {
+  width: 12px;
+  height: 12px;
+}
+
+body.cursor-hover #cursor-ring {
+  width: 48px;
+  height: 48px;
+  opacity: 0.6;
+}
+
+/* Clip path reveal animation */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.clip-reveal.revealed {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Gold underline on hover */
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gold);
+  transition: width 0.3s ease;
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(205, 184, 124, 0.3);
+  border-top-color: var(--primary-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Gradient overlays */
+.gradient-overlay-dark {
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.3) 60%, transparent 100%);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Chatbot panel */
+.chatbot-panel {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-gold), transparent);
+}
+
+/* Hotspot pulse */
+@keyframes hotspot-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.hotspot-pulse {
+  animation: hotspot-pulse 2s ease-in-out infinite;
+}
+
+/* Page transition overlay */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--primary-black);
+  z-index: 10000;
+  pointer-events: none;
+}
